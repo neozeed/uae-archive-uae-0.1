@@ -113,7 +113,7 @@ XFREE86JAPANESEDOCDIR = $(XFREE86DOCDIR)/Japanese
 .SUFFIXES: .cxx
 
               CXX = g++
-    CXXDEBUGFLAGS = -pipe -O6 -m486 -fomit-frame-pointer
+    CXXDEBUGFLAGS = -O2 #-pipe -O6 -m486 -fomit-frame-pointer
  CXXEXTRA_DEFINES =
 CXXEXTRA_INCLUDES =
   CXXIDL_INCLUDES = -I$(TOP)/include
@@ -189,7 +189,7 @@ CXXEXTRA_INCLUDES =
 
      TOP_INCLUDES = -I$(INCROOT)
 
-      CDEBUGFLAGS = -pipe -O6 -m486 -fomit-frame-pointer
+      CDEBUGFLAGS = #-pipe -O6 -m486 -fomit-frame-pointer
         CCOPTIONS =
 
       ALLINCLUDES = $(INCLUDES) $(EXTRA_INCLUDES) $(TOP_INCLUDES) $(STD_INCLUDES)
@@ -283,7 +283,7 @@ CXXEXTRA_INCLUDES =
 
 SOXLIBREV = 6.0
 DEPXONLYLIB =
-XONLYLIB =  -lX11
+XONLYLIB =  #-lX11
 
 LINTXONLY = $(LINTLIBDIR)/llib-lX11.ln
 
@@ -296,18 +296,18 @@ LINTXONLY = $(LINTLIBDIR)/llib-lX11.ln
 
 SOXEXTREV = 6.0
 DEPXEXTLIB =
-XEXTLIB =  -lXext
+XEXTLIB =  #-lXext
 
-LINTXEXT = $(LINTLIBDIR)/llib-lXext.ln
+LINTXEXT = #$(LINTLIBDIR)/llib-lXext.ln
 
 SOXEXTREV = 6.0
 DEPLBXXEXTLIB =
-LBXXEXTLIB =  -llbxXext
+LBXXEXTLIB =  #-llbxXext
 
 LINTLBXXEXT = $(LINTLIBDIR)/llib-llbxXext.ln
 
 DEPXEXEXTLIB = $(USRLIBDIR)/libXExExt.a
-XEXEXTLIB =  -lXExExt
+XEXEXTLIB =  #-lXExExt
 
 LINTXEXEXT = $(LINTLIBDIR)/llib-lXExExt.ln
 
@@ -323,7 +323,7 @@ LINTXEXEXT = $(LINTLIBDIR)/llib-lXExExt.ln
          XAUTHSRC = $(LIBSRC)/Xau
 
 DEPXAUTHLIB = $(USRLIBDIR)/libXau.a
-XAUTHLIB =  -lXau
+XAUTHLIB =  #-lXau
 
 LINTXAUTH = $(LINTLIBDIR)/llib-lXau.ln
 
@@ -473,13 +473,14 @@ XMULIB = $(XMULIBONLY) $(XTOOLLIB) $(XLIB)
 # -----------------------------------------------------------------------
 # start of Imakefile
 
-CXX = g++ -Wall  -g
+CXX = g++ -Wall  -g -trigraphs
 
-LIBS = -lg++ -lg
+#LIBS = -lSDL  -lstdc++ #-lg++ -lg
+LIBS =  -lmingw32 -lstdc++ -lSDLmain -lSDL -liconv -lm -luser32 -lgdi32 -lwinmm -ldxguid
 
 PROGRAM = uae
 
-OBJS = main.o cpu.o memory.o debug.o custom.o cia.o disk.o xwin.o
+OBJS = main.o cpu.o memory.o debug.o custom.o cia.o disk.o sdl.o #xwin.o
 
 $(PROGRAM): $(OBJS)
 	$(RM) $@

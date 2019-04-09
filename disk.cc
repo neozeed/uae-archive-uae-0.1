@@ -7,8 +7,9 @@
   * (c) 1995 Bernd Schmidt
   */
 
-#include <iostream.h>
-#include <iomanip.h>
+#include <iostream>
+using namespace std;
+#include <iomanip>
 #include <unistd.h>
 #include <stdio.h>
 
@@ -57,7 +58,7 @@ void drive::eject()
 
 void drive::insert(char *fname)
 {
-  diskfile = fopen(fname,"r+");
+  diskfile = fopen(fname,"rb+");
 }
 
 void drive::step()

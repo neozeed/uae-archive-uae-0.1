@@ -9,3 +9,4 @@
 
 void InitX();
 void DrawPixel(int x,int y,int col);
+void SDLPoll();

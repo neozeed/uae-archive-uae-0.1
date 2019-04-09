@@ -7,8 +7,8 @@
   */
 
 const int chipmem_size = 512;
-const int fastmem_size = 0;
-const int bogomem_size = 0; // C00000 crap mem
+const int fastmem_size = 1024;
+const int bogomem_size = 256; // C00000 crap mem
 
 class address64k {
  public:

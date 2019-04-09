@@ -8,14 +8,17 @@
   */
 
 #include <ctype.h>
-#include <iostream.h>
-#include <iomanip.h>
+#include <iostream>
+using namespace std;
+#include <iomanip>
 
 #include "amiga.h"
 #include "memory.h"
 #include "cpu.h"
 #include "custom.h"
 #include "cia.h"
+
+extern void SDLPoll();
 
 void ignore_ws(char *&c)
 {
@@ -112,5 +115,6 @@ void debug()
       }
       break;
     }
+SDLPoll();
   }
 }

@@ -26,8 +26,9 @@
   * (c) 1995 Bernd Schmidt
   */
 
-#include <iostream.h>
-#include <iomanip.h>
+#include <iostream>
+using namespace std;
+#include <iomanip>
 
 #include "amiga.h"
 #include "memory.h"

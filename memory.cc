@@ -9,8 +9,9 @@
   * (c) 1995 Bernd Schmidt
   */
 
-#include <iostream.h>
-#include <fstream.h>
+#include <iostream>
+using namespace std;
+#include <fstream>
 
 #include "amiga.h"
 #include "memory.h"
@@ -73,7 +74,7 @@ amigamemory::amigamemory()
   }
 
   // init rom
-  ifstream romin(romfile);
+  ifstream romin(romfile,ios::in | ios::binary);
   for (bank = 0;bank<8;bank++){
     cout << "got 64k rom\n";
     banks[248+bank] = new rom64k(romin);

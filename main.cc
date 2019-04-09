@@ -4,8 +4,8 @@
   * (c) 1995 Bernd Schmidt
   */
 
-#include <iostream.h>
-#include <iomanip.h>
+#include <iostream>
+#include <iomanip>
 #include <assert.h>
 
 #include "amiga.h"

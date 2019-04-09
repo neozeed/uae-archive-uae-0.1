@@ -25,10 +25,13 @@
   * 
   */
 
-#include <iostream.h>
-#include <iomanip.h>
+#include <iostream>
+using namespace std;
+
+#include <iomanip>
 #include <assert.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "amiga.h"
 #include "memory.h"
@@ -1734,10 +1737,13 @@ void MC68000_step()
   }
 }
 
+extern void SDLPoll();
+
 void MC68000_skip(CPTR nextpc)
 {
   do {
     MC68000_step();
+    SDLPoll();
   } while (nextpc != regs.pc);
 }
 
