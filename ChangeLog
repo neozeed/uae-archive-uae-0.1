@@ -1,0 +1,40 @@
+950826 bugfix in GenerateDecTab(): LEA.W instructions were generated.
+950312 New file disk.cc, for (guess what) disk support. Doesn't work yet.
+950311 Multiplication instructions were generating 16 bit results.
+       Sign extension was wrong in some places.
+       Removed bugs in the blitter (one word width: ALWM & AFWM and line mode)
+       The Kickstart logo looks perfect now.
+       Playfield routine should check BPLCON0 instead of BLTCON0
+950309 ASR D8,D0 is not a valid instruction.
+       Bitplane pointers were not incremented.
+       Copper comparison didn't work. COP2LC and bitplane pointers were written
+       incorrectly. Fixed.
+       Something that bears a striking resemblance to the familiar Kickstart
+       logo now appears in my X window!
+950306 ROR used to set the X flag. Bug fixes in GenerateDecTab.
+       More bug fixes in several 68000 instructions.
+       Improved blitter. ?????? KS1.3 doesn't seem to set BLTDMOD on a 
+       line draw. What is this??
+       Fixed stupid bugs in playfield code.
+950305 fixed bugs in opcode generation and interrupt handling. Implemented 
+       STOP. Fixed flag settings: Result wasn't masked. Ooops!!
+       ADDQ #imm,An doesn't set flags.
+       One-shot timer mode didn't work.
+       Implemented blitter, doesn't work.
+       Some primitive and slow playfield support, only to make the things that
+       hopefully will soon appear visible.
+950304 CIA timers ought to work OK. Copper is emulated.
+       Emulator loops infinitely when trying to initialize the console.device
+950303 experiments with X, figured out how to open a window and draw pixels.
+       No graphics emulation yet, though.
+950301 Nearly all instructions work.
+       Fixed supervisor mode stack.
+       The memory manager now handles CIA chips.
+950228 Bug fixes in 68000 code, exceptions and more instructions implemented
+       Memory management extended to handle custom chips as well.
+       Debugger improved.
+       Kickstart passes memory & CPU type test, builds up some system
+       structures.
+950227 MC68000 & little debugger for tracing. It can execute the first couple
+       of KS1.3 instructions, but doesn't get past the memory test.
+950225 Work begun

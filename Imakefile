@@ -1,0 +1,10 @@
+
+CXX = g++ -Wall  -g
+
+LIBS = -lg++ -lg
+
+PROGRAM = uae
+
+OBJS = main.o cpu.o memory.o debug.o custom.o cia.o disk.o xwin.o
+
+NormalProgramTarget($(PROGRAM),$(OBJS), ,$(XLIB), $(LIBS))

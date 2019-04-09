@@ -1,0 +1,26 @@
+
+CC = gcc
+LD = gcc
+ 
+CPPFLAGS = -Wall -O2 -g -fomit-frame-pointer
+
+#Play with these directories...
+INCDIRS = -I/usr/X11R5/include
+LDFLAGS = -lg++ -lX11 -g -L/usr/X11R5/lib
+
+PROGRAM = uae
+
+OBJS = main.o cpu.o memory.o debug.o custom.o cia.o disk.o xwin.o
+
+all: $(PROGRAM)
+
+install:
+
+$(PROGRAM): $(OBJS)
+	$(LD) $(OBJS) -o $(PROGRAM) $(LDFLAGS)
+
+clean:
+	rm -f *.o $(PROGRAM)
+
+.C.o:
+	$(CC) $(INCLUDES) -c $(INCDIRS) $(CPPFLAGS) $*.C
